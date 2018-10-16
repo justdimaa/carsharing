@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="autoverleih.ui.MainController">
+   <children>
+      <TableView fx:id="tvAutos" layoutX="14.0" layoutY="15.0" prefHeight="371.0" prefWidth="327.0">
+         <columns>
+            <TableColumn fx:id="tcModell" editable="false" prefWidth="152.0" sortable="false" text="Modell" />
+            <TableColumn fx:id="tcAnschaffungsdatum" editable="false" prefWidth="172.0" sortable="false" text="Anschaffungsdatum" />
+         </columns>
+      </TableView>
+      <Label layoutX="379.0" layoutY="14.0" text="Autoverleih">
+         <font>
+            <Font name="Century Gothic" size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="371.0" layoutY="105.0" text="Sortiert nach" />
+      <CheckBox fx:id="cbName" layoutX="371.0" layoutY="129.0" mnemonicParsing="false" onAction="#wechselnSortiermethoden" text="Modell" />
+      <CheckBox fx:id="cbAnschaffungsdatum" layoutX="371.0" layoutY="154.0" mnemonicParsing="false" onAction="#wechselnSortiermethoden" text="Anschaffungsdatum" />
+      <Button layoutX="368.0" layoutY="336.0" mnemonicParsing="false" onAction="#auflistenAutos" prefHeight="50.0" prefWidth="200.0" text="Autos auflisten" />
+      <Label layoutX="371.0" layoutY="207.0" text="Sortieren in" />
+      <RadioButton fx:id="rbJava" disable="true" layoutX="371.0" layoutY="231.0" mnemonicParsing="false" onAction="#wechselnSortiermethoden" selected="true" text="Java" />
+      <RadioButton fx:id="rbMySQL" disable="true" layoutX="371.0" layoutY="255.0" mnemonicParsing="false" onAction="#wechselnSortiermethoden" text="MySQL" />
+      <Label fx:id="lbNachricht" layoutX="371.0" layoutY="312.0">
+         <font>
+            <Font name="Century Gothic" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
