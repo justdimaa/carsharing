@@ -64,7 +64,7 @@ public final class MainController
     	
 		ArrayList<Auto> lAutos = this.getAutos();
 		
-		this.lbNachricht.setText(String.format("Es wurden %s Datens‰tze gefunden", lAutos.size()));
+		this.lbNachricht.setText(String.format("Es wurden %s Datenstze gefunden", lAutos.size()));
 		
 		this.sortierenAutos(lAutos);
 		
@@ -76,7 +76,7 @@ public final class MainController
 
     /**
      * Aktiviert oder deaktivert die Sortiermethoden {@link #rbJava} und {@link #rbMySQL},
-     * je nachdem, ob die Sortierkriterien {@link #cbName} und {@link #cbAnschaffungsdatum} ausgew‰hlt wurden.
+     * je nachdem, ob die Sortierkriterien {@link #cbName} und {@link #cbAnschaffungsdatum} ausgew√§hlt wurden.
      * @param pEvent
      */
     @FXML
@@ -90,8 +90,8 @@ public final class MainController
     
     /**
      * Sortiert die Liste <code>pAutos</code> 
-     * nach den ausgew‰hlten Kriterien {@link #cbName} und {@link #cbAnschaffungsdatum},
-     * wenn die Sortiermethode {@link #rbJava} ausgew‰hlt wurde.
+     * nach den ausgewhlten Kriterien {@link #cbName} und {@link #cbAnschaffungsdatum},
+     * wenn die Sortiermethode {@link #rbJava} ausgew√§hlt wurde.
      * @param pAutos Die zu sortierende Liste.
      */
     private void sortierenAutos(ArrayList<Auto> pAutos)
@@ -107,7 +107,7 @@ public final class MainController
     }
 	
     /**
-     * @return Alle Datens‰tze aus der Datenbanktabelle <code>autos</code> als Auto.
+     * @return Alle Datens√§tze aus der Datenbanktabelle <code>autos</code> als Auto.
      * @see autoverleih.Auto
      */
 	public ArrayList<Auto> getAutos()
@@ -146,33 +146,36 @@ public final class MainController
 	}
 	
 	/**
-	 * @return Den Datenbankbefehl, um die Datens‰tze der Tabelle <code>autos</code> auszulesen.
+	 * @return Den Datenbankbefehl, um die Datens√§tze der Tabelle <code>autos</code> auszulesen.
 	 */
 	private String getDatenbankAutoBefehl()
 	{
 		final String cQUERY = "SELECT * FROM `autos`";
 		
-		if (this.cbName.isSelected())
+		if (this.rbMySQL.isSelected())
 		{
-			final String cSORT = " ORDER BY `modell`";
+		    if (this.cbName.isSelected())
+		    {
+			    final String cSORT = " ORDER BY `modell`";
 			
-			if (this.cbAnschaffungsdatum.isSelected())
-			{
-				return cQUERY + cSORT + ", `anschaffungsdatum`";
-			}
+			    if (this.cbAnschaffungsdatum.isSelected())
+			    {
+			    	return cQUERY + cSORT + ", `anschaffungsdatum`";
+			    }
 			
-			return cQUERY + cSORT;
-		}
-		else if (this.cbAnschaffungsdatum.isSelected())
-		{
-			return cQUERY + " ORDER BY `anschaffungsdatum`";
+			    return cQUERY + cSORT;
+		    }
+		    else if (this.cbAnschaffungsdatum.isSelected())
+		    {
+			    return cQUERY + " ORDER BY `anschaffungsdatum`";
+		    }
 		}
 		
 		return cQUERY;
 	}
 	
 	/**
-	 * @return Den Comparator, um die Autoliste nach den ausgew‰hlten Kriterien zu sortieren.
+	 * @return Den Comparator, um die Autoliste nach den ausgew√§hlten Kriterien zu sortieren.
 	 */
 	private Comparator<Auto> getAutoComparator()
 	{
